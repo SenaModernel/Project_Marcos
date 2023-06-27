@@ -10,12 +10,13 @@ icone_game = pygame.image.load("space.png")
 pygame.display.set_caption("Um dia eu vi, uma estrela cadente e fiz um pedido!! Creio fui atendido")
 pygame.display.set_icon(icone_game)
 fundo_game = pygame.image.load("bg.jpg")
-
+marca_ponto = []
 pygame.mixer.init()
 pygame.mixer.music.load("umPedido.mp3")
 pygame.mixer.music.play(-1)
-
+Desenvolvimento = pygame.time.Clock()
 estrelas = []
+item = []
 running = True
 while running:
     for event in pygame.event.get():
@@ -32,9 +33,16 @@ while running:
             estrelas[item] = pos 
             
             for key,value in estrelas.item():
-                texto = font.render
-                game_tela.blit()
-    
+                
+                game_tela.fill((0, 0, 0)) 
+                
+
+        for i in range(len(marca_ponto) - 1):
+            point1, _ = marca_ponto[i]
+            point2, _ = marca_ponto[i + 1]
+            pygame.draw.line(game_tela, (255, 255, 255), point1, point2, 2)
+            
+              
     game_tela.blit(fundo_game,(0,0))
     
     pygame.draw.circle(game_tela, ponto_branco, (255,130), 3)
